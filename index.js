@@ -23,9 +23,9 @@ const state_gameOver = 27 // 状态_游戏结束_
 
 
 
-
+// 在控制游戏的标志位
 var downEndFlag = 0 // 结束下落标记
-var nowTime = 0 // 现在时间
+var nowTime = 0 // 现在时间  时间是累加的, 也就是没渲染一次, 时间就会+1
 var showBloxLocationX = 1 // 出现X方块位置
 var state = 1 // 状态
 
@@ -64,7 +64,7 @@ onkeydown = function (event) {
       keyCode == 65 && showBloxLocationX != 0 ? state_left :
       keyCode == 87 ? state_up :
       keyCode == 68 && showBloxLocationX != 3 ? state_right :
-      keyCode == 83 && state_begin ? state_beginDown : state_normal
+      keyCode == 83 ? state_beginDown : state_normal
   }
 }
 
@@ -73,10 +73,9 @@ var setColor = function (num, flag) {
   ctx.fillStyle = 'hsl(' + num * 35 + ',40%,' + flag + '%)'
 }
 
-let count = 0
 
 var render = function () { // 渲染函数
-
+  
   ctx.fillStyle = 'rgba(0,0,0,0.2)' // 绘制底色
   ctx.fillRect(0, 0, 300, 500) // 绘制大小
 
@@ -85,9 +84,10 @@ var render = function () { // 渲染函数
   // 定义数组, 应该是我们的那三个小方块
   var myArr = new Array(6).fill(0)
 
-  downEndFlag = state_begin // 开始执行一个渲染动画, 状态为开始
+  downEndFlag = state_begin // 下落结束标记
 
   var flag = 1 // 标记 这个标记的具体含义还没有理解
+
   map.forEach((item, index, arr) => { // 55元素, 循环处理
     // 其实每一个元素, 代表了一个格子
 
@@ -148,7 +148,6 @@ var render = function () { // 渲染函数
         toAnimaition(item, item.toxy.x, item.toxy.y)
       }
 
-      // 爆炸结束, 
       if (state == state_endBomm && item.isEnd && !item.toxy) { // 爆炸结束
         item.isEnd = 0
         item.num++ // 当前这个i加一
