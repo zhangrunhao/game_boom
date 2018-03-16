@@ -1,13 +1,27 @@
-import _ from 'lodash';
-import './style.css'
+import content from './html/template.html'
+import tpl from 'mini-tpl'
+const data = [{ name: 'tom', age: 12 }, { name: 'lily', age: 24 }, { name: 'lucy', age: 55 }];
+var res = tpl(content, data)
+document.getElementById('app').innerHTML = res
+import './style/style.css'
 
-function component() {
-  var element = document.createElement('div');
 
-  // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-  return element;
-}
 
-document.body.appendChild(component());
+
+
+
+
+
+import Block from './Bolck' // 
+
+var block = new Block({
+  a: 1,
+  b: 1,
+  c: 1,
+  d: 1
+}, 2)
+
+block.move('r')
+
+

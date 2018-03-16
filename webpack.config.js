@@ -15,7 +15,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Output Management'
+      template: './src/html/index.html'
     })
   ],
   module: {
@@ -25,6 +25,14 @@ module.exports = {
         'style-loader',
         'css-loader'
       ]
+    },{
+      test: /\.(html)$/,
+      use: {
+        loader: 'html-loader',
+        options: {
+          attrs: [':data-src']
+        }
+      }
     }]
   }
 }
