@@ -1,27 +1,28 @@
-import content from './html/template.html'
-import tpl from 'mini-tpl'
-const data = [{ name: 'tom', age: 12 }, { name: 'lily', age: 24 }, { name: 'lucy', age: 55 }];
-var res = tpl(content, data)
-document.getElementById('app').innerHTML = res
 import './style/style.css'
 
 
+// 创造地图
+const row = 6
+const col = 9
+var mapArr = new Array
+for(let i = 0 ; i < col; i++) {
+  mapArr.push(new Array(row).fill(new Object))
+}
+console.log(mapArr)
+
+
+
+
+
+// 渲染函数
+// 根据地图生成指定DIV
+var html = require('./html/template.art')(mapArr)
+document.getElementById('app').innerHTML = html
 
 
 
 
 
 
-
-import Block from './Bolck' // 
-
-var block = new Block({
-  a: 1,
-  b: 1,
-  c: 1,
-  d: 1
-}, 2)
-
-block.move('r')
 
 

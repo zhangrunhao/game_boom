@@ -1,0 +1,11 @@
+<div class="outer">
+  {{each}}
+  <div class="row">
+    {{each}}
+    <div class="col">
+      {{num}}
+    </div>
+    {{/each}}
+  </div>
+  {{/each}}
+</div>

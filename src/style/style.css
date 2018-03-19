@@ -1,3 +1,21 @@
 body {
   background: #ddd;
 }
+.outer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.row {
+  overflow: hidden;
+}
+.col {
+  width: 30px;
+  height: 30px;
+  border: 2px solid salmon;
+  margin: 2px;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+}

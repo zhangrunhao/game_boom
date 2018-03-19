@@ -11,6 +11,7 @@
   "author": "zhangrh",
   "license": "ISC",
   "devDependencies": {
+    "art-template-loader": "^1.4.3",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.10",
     "html-loader": "^0.5.5",
@@ -21,7 +22,9 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
+    "art-template": "^4.12.2",
     "lodash": "^4.17.5",
-    "mini-tpl": "^1.1.1"
+    "mini-tpl": "^1.1.1",
+    "request": "^2.79.0"
   }
 }

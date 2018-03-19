@@ -25,7 +25,7 @@ module.exports = {
         'style-loader',
         'css-loader'
       ]
-    },{
+    }, {
       test: /\.(html)$/,
       use: {
         loader: 'html-loader',
@@ -33,6 +33,11 @@ module.exports = {
           attrs: [':data-src']
         }
       }
+    }, {
+      test: /\.art$/,
+      use: [
+        'art-template-loader'
+      ]
     }]
   }
 }
