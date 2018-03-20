@@ -1,9 +1,11 @@
 <div class="outer">
   {{each}}
   <div class="row">
-    {{each}}
+    {{each $value}}
     <div class="col">
-      {{num}}
+      {{if !$value.isBlank}}
+      {{$value.num}}
+      {{/if}}
     </div>
     {{/each}}
   </div>
